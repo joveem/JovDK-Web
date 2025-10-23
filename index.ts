@@ -5,6 +5,6 @@ export * from './cdn-service/cdn-service';
 export * from './image-loading-service/image.service';
 export * from './image-loading-service/img.directive';
 export * from './localization-service/localization-config';
+export * from './localization-service/default-localization.config';
 export * from './localization-service/localization-service.service';
 export * from './tabs/TabData';
-

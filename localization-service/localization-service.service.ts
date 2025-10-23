@@ -7,13 +7,9 @@ import {
     LocalizationLanguageOption,
     LocalizationTerm,
 } from './localization-config';
+import { DEFAULT_LOCALIZATION_CONFIG } from './default-localization.config';
 
 type TermsDictionary = Record<string, string>;
-
-const FALLBACK_LANGUAGE: LocalizationLanguageOption = {
-    id: 'en-us',
-    name: 'English (US)',
-};
 
 const DEFAULT_STORAGE_KEY = 'config-language-preference-id';
 
@@ -22,17 +18,21 @@ const DEFAULT_STORAGE_KEY = 'config-language-preference-id';
 })
 export class LocalizationService {
     private readonly platformId = inject(PLATFORM_ID);
-    private readonly config: LocalizationConfig = inject(LOCALIZATION_CONFIG, { optional: true }) ?? {
-        languages: [FALLBACK_LANGUAGE],
-        defaultLanguageId: FALLBACK_LANGUAGE.id,
-    };
+    private readonly config: LocalizationConfig =
+        inject(LOCALIZATION_CONFIG, { optional: true }) ?? DEFAULT_LOCALIZATION_CONFIG;
 
     private readonly storageKey = this.config.storageKey ?? DEFAULT_STORAGE_KEY;
-    private readonly languages: LocalizationLanguageOption[] = [...this.config.languages];
+    private readonly languages: LocalizationLanguageOption[] =
+        (this.config.languages && this.config.languages.length > 0)
+            ? [...this.config.languages]
+            : [...DEFAULT_LOCALIZATION_CONFIG.languages];
     private readonly languagesById = new Map<string, LocalizationLanguageOption>(
         this.languages.map((language) => [language.id, language]),
     );
-    private readonly terms: LocalizationTerm[] = [...(this.config.terms ?? [])];
+    private readonly terms: LocalizationTerm[] =
+        (this.config.terms && this.config.terms.length > 0)
+            ? [...this.config.terms]
+            : [...(DEFAULT_LOCALIZATION_CONFIG.terms ?? [])];
 
     private readonly currentLanguageSubject = new BehaviorSubject<LocalizationLanguageOption>(
         this.resolveInitialLanguage(),
@@ -73,7 +73,11 @@ export class LocalizationService {
 
     private resolveInitialLanguage(): LocalizationLanguageOption {
         const cachedLanguageId = this.readLanguagePreference();
-        const fallbackLanguageId = this.config.defaultLanguageId ?? this.languages[0]?.id ?? FALLBACK_LANGUAGE.id;
+        const fallbackLanguageId =
+            this.config.defaultLanguageId ??
+            this.languages[0]?.id ??
+            DEFAULT_LOCALIZATION_CONFIG.defaultLanguageId ??
+            DEFAULT_LOCALIZATION_CONFIG.languages[0]?.id;
 
         if (cachedLanguageId && this.languagesById.has(cachedLanguageId)) {
             return this.languagesById.get(cachedLanguageId)!;
@@ -83,7 +87,7 @@ export class LocalizationService {
             return this.languagesById.get(fallbackLanguageId)!;
         }
 
-        return this.languages[0] ?? FALLBACK_LANGUAGE;
+        return this.languages[0] ?? DEFAULT_LOCALIZATION_CONFIG.languages[0];
     }
 
     private buildDictionary(languageId: string): TermsDictionary {
