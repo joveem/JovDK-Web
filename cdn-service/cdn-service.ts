@@ -1,72 +1,54 @@
-export default class CdnService
-{
-    _isInitialized: boolean = false;
-    _cdnBaseUrl: string = "";
+export class CdnService {
+    private isInitialized = false;
+    private cdnBaseUrl = '';
+    private readonly onInitializedCallbacks: Array<() => void> = [];
 
-    _onInitializedCallbacksList: Array<() => void> = new Array();
-
-    constructor(cdnBaseUrl: string)
-    {
-        this._cdnBaseUrl = cdnBaseUrl;
-        this._isInitialized = true;
+    constructor(cdnBaseUrl: string) {
+        this.setCdnUrl(cdnBaseUrl);
     }
 
-
-    SetOnInitializedCallback(onInitializedCallback: () => void): void
-    {
-        this._onInitializedCallbacksList.push(onInitializedCallback);
+    setOnInitializedCallback(onInitializedCallback: () => void): void {
+        this.onInitializedCallbacks.push(onInitializedCallback);
     }
 
-    OnInitialized()
-    {
-        this._isInitialized = true;
-        this._onInitializedCallbacksList.map(callback => callback());
+    setCdnUrl(cdnBaseUrl: string): void {
+        this.cdnBaseUrl = normalizeBaseUrl(cdnBaseUrl);
+        this.isInitialized = true;
+        this.notifyInitialized();
     }
 
-    SetCdnUrl(cdnBaseUrl: string)
-    {
-        this._cdnBaseUrl = cdnBaseUrl;
-        this.OnInitialized();
+    getContentUrl(contentPath: string): string {
+        const normalizedPath = normalizeContentPath(contentPath);
+
+        if (!this.cdnBaseUrl) {
+            return normalizedPath;
+        }
+
+        return `${this.cdnBaseUrl}/${normalizedPath}`;
     }
 
-    GetContentUrl(contentPath: string): string
-    {
-        let value: string = "";
+    private notifyInitialized(): void {
+        if (!this.isInitialized) {
+            return;
+        }
 
-        let cdnBaseUrl = this.HandleCdnUrl(this._cdnBaseUrl);
-        contentPath = this.HandleCdnUrl(contentPath);
-
-        value = this._cdnBaseUrl + "/" + contentPath;
-
-        return value;
-    }
-
-
-    HandleCdnUrl(cdnUrl: string)
-    {
-        let value: string = "";
-
-        let hasSlashOnState = cdnUrl[cdnUrl.length - 1] == "/";
-
-        if (hasSlashOnState)
-            cdnUrl = cdnUrl.substring(0, cdnUrl.length - 1);
-
-        value = cdnUrl;
-
-        return value;
-    }
-
-    HandleContentPath(contentPath: string)
-    {
-        let value: string = "";
-
-        let hasSlashOnState = contentPath[0] == "/";
-
-        if (hasSlashOnState)
-            contentPath = contentPath.substring(1);
-
-        value = contentPath;
-
-        return value;
+        this.onInitializedCallbacks.forEach((callback) => callback());
     }
 }
+
+const normalizeBaseUrl = (cdnUrl: string): string => {
+    if (!cdnUrl) {
+        return '';
+    }
+
+    return cdnUrl.endsWith('/') ? cdnUrl.slice(0, -1) : cdnUrl;
+};
+
+const normalizeContentPath = (contentPath: string): string => {
+    if (!contentPath) {
+        return '';
+    }
+
+    return contentPath.startsWith('/') ? contentPath.slice(1) : contentPath;
+};
+

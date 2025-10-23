@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AppEnvironmentHandler, EnviromentData, environment } from '../../../../environments/environment';
+import { Component, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { APP_ENVIRONMENT_INFO } from '../core/environment/app-environment.token';
 
 @Component({
     selector: 'app-version-panel',
@@ -9,12 +9,17 @@ import { NgIf } from '@angular/common';
         NgIf,
     ],
     templateUrl: './app-version-panel.component.html',
-    styleUrl: './app-version-panel.component.css'
+    styleUrl: './app-version-panel.component.css',
 })
 export class AppVersionPanelComponent {
-    // dependencies
-    _environmentData: EnviromentData = environment;
+    private readonly environmentInfo = inject(APP_ENVIRONMENT_INFO, { optional: true }) ?? {
+        appVersion: '0.0.0',
+        environmentName: 'unknown',
+        isProduction: false,
+    };
 
-    // state
-    _isProd = AppEnvironmentHandler.IsProd();
+    readonly appVersion = this.environmentInfo.appVersion;
+    readonly environmentName = this.environmentInfo.environmentName;
+    readonly isProduction = this.environmentInfo.isProduction ?? false;
 }
+

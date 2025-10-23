@@ -1,34 +1,30 @@
 export class AsyncActionsQueue {
-    _actionsQueue: AsyncAction[] = [];
-    _isBudy = false;
+    private readonly queue: AsyncAction[] = [];
+    private processing = false;
 
-    EqueueAction = (action: () => Promise<void>) => {
-        let newAsyncAction: AsyncAction = {
-            Action: action,
-        };
+    enqueue(action: () => Promise<void>): void {
+        this.queue.push({ action });
+        void this.tryProcessNext();
+    }
 
-        this._actionsQueue.push(newAsyncAction);
-
-        this.TryToRunNextAction();
-    };
-
-    TryToRunNextAction = async () => {
-        if (!this._isBudy) {
-            if (this._actionsQueue.length > 0) {
-                this._isBudy = true;
-
-                let asyncAction = this._actionsQueue.shift();
-
-                if (asyncAction != undefined && asyncAction.Action != null)
-                    await asyncAction.Action();
-
-                this._isBudy = false;
-                this.TryToRunNextAction();
-            }
+    private async tryProcessNext(): Promise<void> {
+        if (this.processing || this.queue.length === 0) {
+            return;
         }
-    };
+
+        this.processing = true;
+        const asyncAction = this.queue.shift();
+
+        if (asyncAction?.action) {
+            await asyncAction.action();
+        }
+
+        this.processing = false;
+        void this.tryProcessNext();
+    }
 }
 
-export class AsyncAction {
-    Action: (() => Promise<void>) | null = null;
+export interface AsyncAction {
+    action: (() => Promise<void>) | null;
 }
+

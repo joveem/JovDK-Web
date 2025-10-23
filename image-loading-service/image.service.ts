@@ -1,47 +1,44 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
-export class ImageLoadingService
-{
-    private _imagesLoading = new Subject<number>();
-    private images: Map<HTMLElement, boolean> = new Map();
-    private imagesLoading = 0;
+export class ImageLoadingService {
+    private readonly loadingCounter$ = new BehaviorSubject<number>(0);
+    private readonly trackedImages = new Map<HTMLElement, boolean>();
 
-    imagesLoading$ = this._imagesLoading.asObservable();
+    readonly imagesLoading$ = this.loadingCounter$.asObservable();
 
-    imageLoading(img: HTMLElement)
-    {
-        // console.log("ImageLoadingService | imageLoading > img = ", img);
-        if (!this.images.has(img) || this.images.get(img))
-        {
-            this.images.set(img, false);
-            this.imagesLoading++;
-            this._imagesLoading.next(this.imagesLoading);
+    imageLoading(img: HTMLElement): void {
+        if (!this.trackedImages.has(img) || this.trackedImages.get(img)) {
+            this.trackedImages.set(img, false);
+            this.incrementCounter();
         }
     }
 
-    forceImageLoadingCount = () =>
-    {
-        this.imagesLoading++;
-        this._imagesLoading.next(this.imagesLoading);
-    }
+    forceImageLoadingCount = (): void => {
+        this.incrementCounter();
+    };
 
-    imageLoadedOrError(img: HTMLElement)
-    {
-        if (this.images.has(img) && !this.images.get(img))
-        {
-            this.images.set(img, true);
-            this.imagesLoading--;
-            this._imagesLoading.next(this.imagesLoading);
+    imageLoadedOrError(img: HTMLElement): void {
+        if (this.trackedImages.has(img) && !this.trackedImages.get(img)) {
+            this.trackedImages.set(img, true);
+            this.decrementCounter();
         }
     }
 
-    forceImageLoadingUncount = () =>
-    {
-        this.imagesLoading--;
-        this._imagesLoading.next(this.imagesLoading);
+    forceImageLoadingUncount = (): void => {
+        this.decrementCounter();
+    };
+
+    private incrementCounter(): void {
+        this.loadingCounter$.next(this.loadingCounter$.value + 1);
+    }
+
+    private decrementCounter(): void {
+        const nextValue = Math.max(0, this.loadingCounter$.value - 1);
+        this.loadingCounter$.next(nextValue);
     }
 }
+
