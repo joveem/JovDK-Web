@@ -1,21 +1,26 @@
-export class AsyncActionsQueue {
+export class AsyncActionsQueue
+{
     private readonly queue: AsyncAction[] = [];
     private processing = false;
 
-    enqueue(action: () => Promise<void>): void {
+    enqueue(action: () => Promise<void>): void
+    {
         this.queue.push({ action });
         void this.tryProcessNext();
     }
 
-    private async tryProcessNext(): Promise<void> {
-        if (this.processing || this.queue.length === 0) {
+    private async tryProcessNext(): Promise<void>
+    {
+        if (this.processing || this.queue.length === 0)
+        {
             return;
         }
 
         this.processing = true;
         const asyncAction = this.queue.shift();
 
-        if (asyncAction?.action) {
+        if (asyncAction?.action)
+        {
             await asyncAction.action();
         }
 
@@ -24,7 +29,8 @@ export class AsyncActionsQueue {
     }
 }
 
-export interface AsyncAction {
+export interface AsyncAction
+{
     action: (() => Promise<void>) | null;
 }
 

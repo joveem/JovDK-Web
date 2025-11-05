@@ -2,11 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppVersionPanelComponent } from './app-version-panel.component';
 
-describe('AppVersionPanelComponent', () => {
+describe('AppVersionPanelComponent', () =>
+{
     let component: AppVersionPanelComponent;
     let fixture: ComponentFixture<AppVersionPanelComponent>;
 
-    beforeEach(async () => {
+    beforeEach(async () =>
+    {
         await TestBed.configureTestingModule({
             imports: [AppVersionPanelComponent]
         })
@@ -17,7 +19,8 @@ describe('AppVersionPanelComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('should create', () =>
+    {
         expect(component).toBeTruthy();
     });
 });

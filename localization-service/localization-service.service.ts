@@ -1,12 +1,13 @@
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {
-    LOCALIZATION_CONFIG,
-    LocalizationConfig,
-    LocalizationLanguageOption,
-    LocalizationTerm,
-} from './localization-config';
+import
+    {
+        LOCALIZATION_CONFIG,
+        LocalizationConfig,
+        LocalizationLanguageOption,
+        LocalizationTerm,
+    } from './localization-config';
 import { DEFAULT_LOCALIZATION_CONFIG } from './default-localization.config';
 
 type TermsDictionary = Record<string, string>;
@@ -16,7 +17,8 @@ const DEFAULT_STORAGE_KEY = 'config-language-preference-id';
 @Injectable({
     providedIn: 'root',
 })
-export class LocalizationService {
+export class LocalizationService
+{
     private readonly platformId = inject(PLATFORM_ID);
     private readonly config: LocalizationConfig =
         inject(LOCALIZATION_CONFIG, { optional: true }) ?? DEFAULT_LOCALIZATION_CONFIG;
@@ -44,25 +46,31 @@ export class LocalizationService {
     );
     readonly dictionary$: Observable<TermsDictionary> = this.dictionarySubject.asObservable();
 
-    get availableLanguages(): ReadonlyArray<LocalizationLanguageOption> {
+    get availableLanguages(): ReadonlyArray<LocalizationLanguageOption>
+    {
         return this.languages;
     }
 
-    get currentLanguage(): LocalizationLanguageOption {
+    get currentLanguage(): LocalizationLanguageOption
+    {
         return this.currentLanguageSubject.value;
     }
 
-    get currentDictionary(): TermsDictionary {
+    get currentDictionary(): TermsDictionary
+    {
         return this.dictionarySubject.value;
     }
 
-    translate(termKey: string): string {
+    translate(termKey: string): string
+    {
         return this.dictionarySubject.value[termKey] ?? termKey;
     }
 
-    setLanguage(languageId: string): void {
+    setLanguage(languageId: string): void
+    {
         const targetLanguage = this.languagesById.get(languageId);
-        if (!targetLanguage || targetLanguage.id === this.currentLanguageSubject.value.id) {
+        if (!targetLanguage || targetLanguage.id === this.currentLanguageSubject.value.id)
+        {
             return;
         }
 
@@ -71,7 +79,8 @@ export class LocalizationService {
         this.writeLanguagePreference(targetLanguage.id);
     }
 
-    private resolveInitialLanguage(): LocalizationLanguageOption {
+    private resolveInitialLanguage(): LocalizationLanguageOption
+    {
         const cachedLanguageId = this.readLanguagePreference();
         const fallbackLanguageId =
             this.config.defaultLanguageId ??
@@ -79,21 +88,25 @@ export class LocalizationService {
             DEFAULT_LOCALIZATION_CONFIG.defaultLanguageId ??
             DEFAULT_LOCALIZATION_CONFIG.languages[0]?.id;
 
-        if (cachedLanguageId && this.languagesById.has(cachedLanguageId)) {
+        if (cachedLanguageId && this.languagesById.has(cachedLanguageId))
+        {
             return this.languagesById.get(cachedLanguageId)!;
         }
 
-        if (fallbackLanguageId && this.languagesById.has(fallbackLanguageId)) {
+        if (fallbackLanguageId && this.languagesById.has(fallbackLanguageId))
+        {
             return this.languagesById.get(fallbackLanguageId)!;
         }
 
         return this.languages[0] ?? DEFAULT_LOCALIZATION_CONFIG.languages[0];
     }
 
-    private buildDictionary(languageId: string): TermsDictionary {
+    private buildDictionary(languageId: string): TermsDictionary
+    {
         const dictionary: TermsDictionary = {};
 
-        this.terms.forEach((term) => {
+        this.terms.forEach((term) =>
+        {
             const value = term.values[languageId];
             dictionary[term.key] = value ?? this.fallbackValue(term);
         });
@@ -101,31 +114,40 @@ export class LocalizationService {
         return dictionary;
     }
 
-    private fallbackValue(term: LocalizationTerm): string {
+    private fallbackValue(term: LocalizationTerm): string
+    {
         const values = Object.values(term.values);
         return values.length > 0 ? values[0] : '';
     }
 
-    private readLanguagePreference(): string | undefined {
-        if (!isPlatformBrowser(this.platformId)) {
+    private readLanguagePreference(): string | undefined
+    {
+        if (!isPlatformBrowser(this.platformId))
+        {
             return undefined;
         }
 
-        try {
+        try
+        {
             return window.localStorage.getItem(this.storageKey) ?? undefined;
-        } catch {
+        } catch
+        {
             return undefined;
         }
     }
 
-    private writeLanguagePreference(languageId: string): void {
-        if (!isPlatformBrowser(this.platformId)) {
+    private writeLanguagePreference(languageId: string): void
+    {
+        if (!isPlatformBrowser(this.platformId))
+        {
             return;
         }
 
-        try {
+        try
+        {
             window.localStorage.setItem(this.storageKey, languageId);
-        } catch {
+        } catch
+        {
             // ignore persistence failures
         }
     }

@@ -11,7 +11,8 @@ import { APP_ENVIRONMENT_INFO } from '../core/environment/app-environment.token'
     templateUrl: './app-version-panel.component.html',
     styleUrl: './app-version-panel.component.css',
 })
-export class AppVersionPanelComponent {
+export class AppVersionPanelComponent
+{
     private readonly environmentInfo = inject(APP_ENVIRONMENT_INFO, { optional: true }) ?? {
         appVersion: '0.0.0',
         environmentName: 'unknown',

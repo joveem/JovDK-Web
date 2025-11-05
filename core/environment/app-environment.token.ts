@@ -1,6 +1,7 @@
 import { InjectionToken, Provider } from '@angular/core';
 
-export interface AppEnvironmentInfo {
+export interface AppEnvironmentInfo
+{
     readonly appVersion: string;
     readonly environmentName: string;
     readonly cdnUrl?: string;
