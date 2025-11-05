@@ -75,8 +75,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-where-and-when-will-BASE-ANGULAR-PROJECT-01-pass',
         TermValueByLanguage: {
-            'pt-br': 'Por onde a $BASE-ANGULAR-PROJECT-01 vai passar e quando',
-            'en-us': 'Where and when will $BASE-ANGULAR-PROJECT-01 be available',
+            'pt-br': 'Por onde a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 vai passar e quando',
+            'en-us': 'Where and when will $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 be available',
         },
     },
     {
@@ -146,9 +146,9 @@ const RAW_TERMS = [
         TermKey: 'home-blackjack-21-against-players-or-table',
         TermValueByLanguage: {
             'pt-br':
-                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet.',
+                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 depositada em qualquer outro lugar que não seja a própria wallet.',
             'en-us':
-                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet.',
+                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 deposited anywhere other than their own wallet.',
         },
     },
     {
@@ -185,9 +185,9 @@ const RAW_TERMS = [
         TermKey: 'home-poker-texas-holdem-against-players',
         TermValueByLanguage: {
             'pt-br':
-                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet.",
+                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 depositada em qualquer outro lugar que não seja a própria wallet.",
             'en-us':
-                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet.",
+                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 deposited anywhere other than their own wallet.",
         },
     },
     {
@@ -208,9 +208,9 @@ const RAW_TERMS = [
         TermKey: 'home-game-with-own-token-nfts-staking',
         TermValueByLanguage: {
             'pt-br':
-                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $BASE-ANGULAR-PROJECT-01.',
+                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
             'en-us':
-                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-01.',
+                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
         },
     },
     {
@@ -232,8 +232,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-pichanha-coin-history',
         TermValueByLanguage: {
-            'pt-br': 'A história da Picanha Coin ($BASE-ANGULAR-PROJECT-01)',
-            'en-us': 'The history of Picanha Coin ($BASE-ANGULAR-PROJECT-01)',
+            'pt-br': 'A história da Picanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01)',
+            'en-us': 'The history of Picanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01)',
         },
     },
     {
@@ -247,9 +247,9 @@ const RAW_TERMS = [
         TermKey: 'home-brazil-2022-election-history',
         TermValueByLanguage: {
             'pt-br':
-                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer BASE-ANGULAR-PROJECT-01 (um corte nobre de boi).',
+                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 (um corte nobre de boi).',
             'en-us':
-                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-01 (a prime cut of beef).',
+                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 (a prime cut of beef).',
         },
     },
     {
@@ -279,9 +279,9 @@ const RAW_TERMS = [
         TermKey: 'home-BASE-ANGULAR-PROJECT-01-symbol-meaning',
         TermValueByLanguage: {
             'pt-br':
-                'O símbolo da BASE-ANGULAR-PROJECT-01 é $BASE-ANGULAR-PROJECT-01. Em português, “BASE-ANGULAR-PROJECT-01” é uma gíria para BASE-ANGULAR-PROJECT-01.',
+                'O símbolo da BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 é $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01. Em português, “BASE-ANGULAR-PROJECT-01” é uma gíria para BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
             'en-us':
-                'The symbol of BASE-ANGULAR-PROJECT-01 is $BASE-ANGULAR-PROJECT-01. In Portuguese, “BASE-ANGULAR-PROJECT-01” is slang for BASE-ANGULAR-PROJECT-01.',
+                'The symbol of BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 is $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01. In Portuguese, “BASE-ANGULAR-PROJECT-01” is slang for BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
         },
     },
     {
@@ -310,8 +310,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-BASE-ANGULAR-PROJECT-01',
         TermValueByLanguage: {
-            'pt-br': 'BASE-ANGULAR-PROJECT-01 ($BASE-ANGULAR-PROJECT-01):',
-            'en-us': 'BASE-ANGULAR-PROJECT-01 ($BASE-ANGULAR-PROJECT-01):',
+            'pt-br': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01):',
+            'en-us': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01):',
         },
     },
 
@@ -335,8 +335,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-who-conceived-BASE-ANGULAR-PROJECT-01-title',
         TermValueByLanguage: {
-            'pt-br': 'Quem idealizou a $BASE-ANGULAR-PROJECT-01',
-            'en-us': 'Who conceived $BASE-ANGULAR-PROJECT-01',
+            'pt-br': 'Quem idealizou a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01',
+            'en-us': 'Who conceived $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01',
         },
     },
     {
