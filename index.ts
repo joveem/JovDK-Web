@@ -4,6 +4,7 @@ export * from './async-queue/async-actions-queue';
 export * from './cdn-service/cdn-service';
 export * from './image-loading-service/image.service';
 export * from './image-loading-service/img.directive';
+export * from './loading-cover/global-loading-cover';
 export * from './localization-service/localization-config';
 export * from './localization-service/default-localization.config';
 export * from './localization-service/localization-service.service';
