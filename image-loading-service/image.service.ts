@@ -1,23 +1,35 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+type ImageCompletionStatus = 'loaded' | 'error' | 'timeout';
+
+interface TrackedImageInfo
+{
+    readonly src: string;
+}
+
 @Injectable({
     providedIn: 'root',
 })
 export class ImageLoadingService
 {
     private readonly loadingCounter$ = new BehaviorSubject<number>(0);
-    private readonly trackedImages = new Map<HTMLElement, boolean>();
+    private readonly trackedImages = new Map<HTMLElement, TrackedImageInfo>();
+    private readonly failedImages = new Set<string>();
 
     readonly imagesLoading$ = this.loadingCounter$.asObservable();
 
     imageLoading(img: HTMLElement): void
     {
-        if (!this.trackedImages.has(img) || this.trackedImages.get(img))
+        if (this.trackedImages.has(img))
         {
-            this.trackedImages.set(img, false);
-            this.incrementCounter();
+            return;
         }
+
+        this.trackedImages.set(img, {
+            src: this.resolveImageSource(img),
+        });
+        this.incrementCounter();
     }
 
     forceImageLoadingCount = (): void =>
@@ -25,19 +37,54 @@ export class ImageLoadingService
         this.incrementCounter();
     };
 
-    imageLoadedOrError(img: HTMLElement): void
+    imageLoadedOrError(img: HTMLElement, status: ImageCompletionStatus = 'loaded'): void
     {
-        if (this.trackedImages.has(img) && !this.trackedImages.get(img))
+        const entry = this.trackedImages.get(img);
+        if (!entry)
         {
-            this.trackedImages.set(img, true);
-            this.decrementCounter();
+            return;
         }
+
+        this.trackedImages.delete(img);
+        if (status === 'error')
+        {
+            this.failedImages.add(entry.src);
+        }
+        this.decrementCounter();
     }
 
     forceImageLoadingUncount = (): void =>
     {
         this.decrementCounter();
     };
+
+    getDiagnosticsSnapshot(): { errors: string[]; pending: string[] }
+    {
+        const pending: string[] = [];
+        for (const entry of this.trackedImages.values())
+        {
+            pending.push(entry.src);
+        }
+        return {
+            errors: Array.from(this.failedImages),
+            pending,
+        };
+    }
+
+    resetDiagnostics(): void
+    {
+        this.failedImages.clear();
+    }
+
+    private resolveImageSource(element: HTMLElement): string
+    {
+        const img = element as HTMLImageElement;
+        return img.currentSrc ||
+            img.src ||
+            img.getAttribute('src') ||
+            img.getAttribute('data-src') ||
+            '[unresolved image source]';
+    }
 
     private incrementCounter(): void
     {
@@ -50,4 +97,3 @@ export class ImageLoadingService
         this.loadingCounter$.next(nextValue);
     }
 }
-
