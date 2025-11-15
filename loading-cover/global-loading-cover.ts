@@ -76,13 +76,6 @@ class GlobalLoadingCoverController {
     contain: layout paint size;
     contain-intrinsic-size: auto;
 }
-#${RESERVE_ID}.hide-reserve {
-    max-height: 0;
-    min-height: 0;
-    block-size: 0;
-    overflow: hidden;
-    transition: max-height 240ms ease, min-height 240ms ease, block-size 240ms ease;
-}
 @keyframes app-loading-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
 
@@ -141,19 +134,12 @@ class GlobalLoadingCoverController {
             return;
 
         const reserveEl = this.reserve;
-        reserveEl.classList.add('hide-reserve');
-        reserveEl.style.visibility = 'hidden';
-        reserveEl.style.pointerEvents = 'none';
+        reserveEl.remove();
 
-        globalThis.setTimeout(() =>
+        if (this.reserve === reserveEl)
         {
-            reserveEl.remove();
-
-            if (this.reserve === reserveEl)
-            {
-                this.reserve = undefined;
-            }
-        }, this.options.removeDelayMs);
+            this.reserve = undefined;
+        }
     }
 }
 
