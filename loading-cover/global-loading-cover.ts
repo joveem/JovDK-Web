@@ -1,247 +1,141 @@
-import { Injectable } from '@angular/core';
-
-type OptionalString = string | undefined;
-
-export interface GlobalLoadingCoverConfig
-{
+export interface LoadingCoverOptions {
     backgroundColor?: string;
     spinnerTrackColor?: string;
     spinnerAccentColor?: string;
     navHeight?: string;
     heroMinHeight?: string;
     reserveHeroSpace?: boolean;
+    removeDelayMs?: number;
 }
 
-@Injectable({
-    providedIn: 'root',
-})
-export class GlobalLoadingCover
-{
-    private static overlayElement: HTMLDivElement | null = null;
-    private static reserveElement: HTMLDivElement | null = null;
-    private static config: Required<GlobalLoadingCoverConfig> = {
-        backgroundColor: '#040404',
-        spinnerTrackColor: 'rgba(255,255,255,0.12)',
-        spinnerAccentColor: '#ff3b30',
-        navHeight: '4rem',
-        heroMinHeight: '32rem',
-        reserveHeroSpace: true,
-    };
-    private static stylesInjected = false;
+const DEFAULT_OPTIONS = {
+    backgroundColor: '#050a12',
+    spinnerTrackColor: 'rgba(148, 163, 184, 0.25)',
+    spinnerAccentColor: 'rgba(255, 138, 76, 0.9)',
+    navHeight: '64px',
+    heroMinHeight: 'calc(100vh - var(--nav-h, 64px))',
+    removeDelayMs: 800,
+    reserveHeroSpace: true,
+};
 
-    static init(config: GlobalLoadingCoverConfig): void
+type ResolvedOptions = Required<Omit<LoadingCoverOptions, 'reserveHeroSpace'>> & { reserveHeroSpace: boolean };
+
+const STYLE_ELEMENT_ID = 'global-loading-cover-style';
+const OVERLAY_ID = 'global-loading-cover';
+const RESERVE_ID = 'global-loading-reserve';
+
+class GlobalLoadingCoverController {
+    private initialized = false;
+    private overlay?: HTMLElement;
+    private reserve?: HTMLElement;
+    private options: ResolvedOptions = DEFAULT_OPTIONS;
+
+    init(options?: LoadingCoverOptions)
     {
-        this.config = {
-            ...this.config,
-            ...config,
-            reserveHeroSpace: config.reserveHeroSpace ?? this.config.reserveHeroSpace,
-        };
+        if (this.initialized)
+            return this;
 
-        this.injectStyles();
-        this.ensureCssVariables();
-        this.ensureOverlayElement();
-        this.ensureReserveElement();
-    }
+        this.options = { ...DEFAULT_OPTIONS, ...options } as ResolvedOptions;
+        const { backgroundColor, spinnerAccentColor, spinnerTrackColor, navHeight, heroMinHeight, reserveHeroSpace } = this.options;
 
-    static show(): void
-    {
-        const overlay = this.ensureOverlayElement();
-        if (overlay)
-        {
-            overlay.style.opacity = '1';
-            overlay.style.visibility = 'visible';
-            overlay.style.pointerEvents = 'auto';
-        }
-    }
-
-    static hide(): void
-    {
-        const overlay = this.overlayElement;
-        if (!overlay)
-        {
-            return;
-        }
-
-        overlay.style.opacity = '0';
-        overlay.style.pointerEvents = 'none';
-        globalThis.setTimeout(() =>
-        {
-            if (overlay.style.opacity === '0')
-            {
-                overlay.style.visibility = 'hidden';
-            }
-        }, 300);
-    }
-
-    static hideReserve(): void
-    {
-        const reserve = this.reserveElement;
-        if (!reserve)
-        {
-            return;
-        }
-
-        reserve.dataset['hidden'] = 'true';
-        globalThis.setTimeout(() =>
-        {
-            reserve.style.display = 'none';
-        }, 400);
-    }
-
-    show(): void
-    {
-        GlobalLoadingCover.show();
-    }
-
-    hide(): void
-    {
-        GlobalLoadingCover.hide();
-    }
-
-    hideReserve(): void
-    {
-        GlobalLoadingCover.hideReserve();
-    }
-
-    private static getDocument(): Document | null
-    {
-        return typeof document !== 'undefined' ? document : null;
-    }
-
-    private static ensureCssVariables(): void
-    {
-        const doc = this.getDocument();
-        if (!doc)
-        {
-            return;
-        }
-
-        const root = doc.documentElement;
-        root.style.setProperty('--nav-h', this.config.navHeight);
-        root.style.setProperty('--hero-min-h', this.config.heroMinHeight);
-    }
-
-    private static ensureOverlayElement(): HTMLDivElement | null
-    {
-        if (this.overlayElement)
-        {
-            return this.overlayElement;
-        }
-
-        const doc = this.getDocument();
-        if (!doc)
-        {
-            return null;
-        }
-
-        const overlay = doc.createElement('div');
-        overlay.dataset['globalLoadingCover'] = 'true';
-        overlay.setAttribute('role', 'status');
-        overlay.setAttribute('aria-live', 'polite');
-        overlay.style.position = 'fixed';
-        overlay.style.inset = '0';
-        overlay.style.zIndex = '9999';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.backgroundColor = this.config.backgroundColor;
-        overlay.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
-
-        const spinner = this.createSpinnerElement(doc);
-        overlay.appendChild(spinner);
-
-        doc.body.appendChild(overlay);
-        this.overlayElement = overlay;
-        return overlay;
-    }
-
-    private static ensureReserveElement(): void
-    {
-        const doc = this.getDocument();
-        if (!doc || !this.config.reserveHeroSpace)
-        {
-            return;
-        }
-
-        if (this.reserveElement)
-        {
-            this.reserveElement.style.display = 'block';
-            return;
-        }
-
-        const reserve = doc.createElement('div');
-        reserve.dataset['reserve'] = 'hero';
-        reserve.setAttribute('aria-hidden', 'true');
-        reserve.style.display = 'block';
-        reserve.style.minHeight = this.config.heroMinHeight;
-        reserve.style.width = '100%';
-        reserve.style.transition = 'opacity 0.4s ease, max-height 0.4s ease';
-        reserve.style.opacity = '1';
-        reserve.style.maxHeight = this.config.heroMinHeight;
-
-        const appRoot = doc.querySelector('app-root');
-        if (appRoot)
-        {
-            doc.body.insertBefore(reserve, appRoot);
-        } else
-        {
-            doc.body.prepend(reserve);
-        }
-
-        this.reserveElement = reserve;
-    }
-
-    private static createSpinnerElement(doc: Document): HTMLDivElement
-    {
-        const wrapper = doc.createElement('div');
-        wrapper.classList.add('global-loading-cover-spinner');
-        wrapper.style.width = '4rem';
-        wrapper.style.height = '4rem';
-        wrapper.style.borderRadius = '9999px';
-        wrapper.style.border = `4px solid ${this.safeColor(this.config.spinnerTrackColor)}`;
-        wrapper.style.borderTopColor = this.safeColor(this.config.spinnerAccentColor);
-        wrapper.style.animation = 'global-loading-cover-spin 1s linear infinite';
-
-        return wrapper;
-    }
-
-    private static injectStyles(): void
-    {
-        if (this.stylesInjected)
-        {
-            return;
-        }
-        const doc = this.getDocument();
-        if (!doc)
-        {
-            return;
-        }
-
-        const style = doc.createElement('style');
-        style.textContent = `
-@keyframes global-loading-cover-spin {
-    to {
-        transform: rotate(360deg);
-    }
+        const styleElement = document.createElement('style');
+        styleElement.id = STYLE_ELEMENT_ID;
+        styleElement.textContent = `
+:root {
+    color-scheme: dark light;
+    --nav-h: ${navHeight};
+    --hero-min-h: ${heroMinHeight};
 }
-
-[data-global-loading-cover="true"] {
-    backdrop-filter: blur(4px);
+#${OVERLAY_ID} {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    display: grid;
+    place-items: center;
+    background: ${backgroundColor};
+    color: #e5e7eb;
+    font: 500 16px/1.2 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: opacity 200ms ease;
 }
-
-[data-reserve="hero"][data-hidden="true"] {
-    opacity: 0;
-    max-height: 0 !important;
+#${OVERLAY_ID}.hide-overlay { opacity: 0; pointer-events: none; }
+#${OVERLAY_ID}[hidden] { display: none !important; }
+#${OVERLAY_ID} .boot-spinner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid ${spinnerTrackColor};
+    border-top-color: ${spinnerAccentColor};
+    animation: app-loading-spin 0.9s linear infinite;
 }
+#${RESERVE_ID}[data-reserve='hero'] {
+    inline-size: 100%;
+    min-height: var(--hero-min-h);
+    block-size: var(--hero-min-h);
+    contain: layout paint size;
+    contain-intrinsic-size: auto;
+}
+@keyframes app-loading-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 `;
-        doc.head.appendChild(style);
-        this.stylesInjected = true;
+
+        document.head.prepend(styleElement);
+
+        if (reserveHeroSpace)
+        {
+            this.reserve = document.createElement('div');
+            this.reserve.id = RESERVE_ID;
+            this.reserve.dataset['reserve'] = 'hero';
+            this.reserve.setAttribute('aria-hidden', 'true');
+            document.body.prepend(this.reserve);
+        }
+
+        this.overlay = document.createElement('div');
+        this.overlay.id = OVERLAY_ID;
+        this.overlay.setAttribute('role', 'status');
+        this.overlay.setAttribute('aria-live', 'polite');
+        this.overlay.setAttribute('aria-busy', 'true');
+        this.overlay.innerHTML = `
+            <span class="sr-only">Loading content</span>
+            <div class="boot-spinner"></div>
+        `;
+        document.body.prepend(this.overlay);
+
+        this.initialized = true;
+        return this;
     }
 
-    private static safeColor(color: OptionalString): string
+    show()
     {
-        return color ?? '#ffffff';
+        if (!this.overlay)
+            return;
+
+        this.overlay.hidden = false;
+        this.overlay.classList.remove('hide-overlay');
+    }
+
+    hide()
+    {
+        if (!this.overlay)
+            return;
+
+        this.overlay.classList.add('hide-overlay');
+        setTimeout(() => {
+            if (!this.overlay)
+                return;
+            this.overlay.hidden = true;
+        }, this.options.removeDelayMs);
+
+    }
+
+    hideReserve()
+    {
+        if (!this.reserve)
+            return;
+
+        this.reserve.style.visibility = 'hidden';
+        this.reserve.style.pointerEvents = 'none';
     }
 }
+
+export const GlobalLoadingCover = new GlobalLoadingCoverController();
