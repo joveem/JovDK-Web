@@ -81,7 +81,7 @@ export class GlobalLoadingCover
             return;
         }
 
-        reserve.dataset.hidden = 'true';
+        reserve.dataset['hidden'] = 'true';
         globalThis.setTimeout(() =>
         {
             reserve.style.display = 'none';
@@ -135,7 +135,7 @@ export class GlobalLoadingCover
         }
 
         const overlay = doc.createElement('div');
-        overlay.dataset.globalLoadingCover = 'true';
+        overlay.dataset['globalLoadingCover'] = 'true';
         overlay.setAttribute('role', 'status');
         overlay.setAttribute('aria-live', 'polite');
         overlay.style.position = 'fixed';
@@ -172,7 +172,7 @@ export class GlobalLoadingCover
         }
 
         const reserve = doc.createElement('div');
-        reserve.dataset.reserve = 'hero';
+        reserve.dataset['reserve'] = 'hero';
         reserve.setAttribute('aria-hidden', 'true');
         reserve.style.display = 'block';
         reserve.style.minHeight = this.config.heroMinHeight;
