@@ -49,7 +49,7 @@ class GlobalLoadingCoverController {
 #${OVERLAY_ID} {
     position: fixed;
     inset: 0;
-    z-index: 2147483646;
+    z-index: 10000;
     display: grid;
     place-items: center;
     background: ${backgroundColor};
