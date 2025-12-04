@@ -6,11 +6,13 @@ const RAW_LANGUAGE_OPTIONS = [
         Id: 'pt-br',
         Name: 'Português',
         FlagIconName: 'brazil-flag-icon-01',
+        FlagExtension: 'svg',
     },
     {
         Id: 'en-us',
         Name: 'English (US)',
         FlagIconName: 'usa-flag-icon-01',
+        FlagExtension: 'svg',
     },
 
 ] as const;
@@ -432,10 +434,11 @@ const RAW_TERMS = [
 export const DEFAULT_LOCALIZATION_CONFIG: LocalizationConfig = {
     storageKey: 'config-language-preference-id',
     defaultLanguageId: 'pt-br',
-    languages: RAW_LANGUAGE_OPTIONS.map(({ Id, Name, FlagIconName }) => ({
+    languages: RAW_LANGUAGE_OPTIONS.map(({ Id, Name, FlagIconName, FlagExtension }) => ({
         id: Id,
         name: Name,
         flagIconName: FlagIconName,
+        flagExtension: FlagExtension,
     })),
     terms: RAW_TERMS.map(({ TermKey, TermValueByLanguage }) => ({
         key: TermKey,
