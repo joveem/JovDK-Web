@@ -75,10 +75,10 @@ const RAW_TERMS = [
         },
     },
     {
-        TermKey: 'home-where-and-when-will-BASE-ANGULAR-PROJECT-01-pass',
+        TermKey: 'home-where-and-when-will-ahap-gc-01-pass',
         TermValueByLanguage: {
-            'pt-br': 'Por onde a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 vai passar e quando',
-            'en-us': 'Where and when will $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 be available',
+            'pt-br': 'Por onde a $Arcade Haus - Games Catalog-01 vai passar e quando',
+            'en-us': 'Where and when will $Arcade Haus - Games Catalog-01 be available',
         },
     },
     {
@@ -148,9 +148,9 @@ const RAW_TERMS = [
         TermKey: 'home-blackjack-21-against-players-or-table',
         TermValueByLanguage: {
             'pt-br':
-                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 depositada em qualquer outro lugar que não seja a própria wallet.',
+                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $Arcade Haus - Games Catalog-01 depositada em qualquer outro lugar que não seja a própria wallet.',
             'en-us':
-                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 deposited anywhere other than their own wallet.',
+                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $Arcade Haus - Games Catalog-01 deposited anywhere other than their own wallet.',
         },
     },
     {
@@ -187,9 +187,9 @@ const RAW_TERMS = [
         TermKey: 'home-poker-texas-holdem-against-players',
         TermValueByLanguage: {
             'pt-br':
-                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 depositada em qualquer outro lugar que não seja a própria wallet.",
+                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $Arcade Haus - Games Catalog-01 depositada em qualquer outro lugar que não seja a própria wallet.",
             'en-us':
-                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 deposited anywhere other than their own wallet.",
+                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $Arcade Haus - Games Catalog-01 deposited anywhere other than their own wallet.",
         },
     },
     {
@@ -210,9 +210,9 @@ const RAW_TERMS = [
         TermKey: 'home-game-with-own-token-nfts-staking',
         TermValueByLanguage: {
             'pt-br':
-                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
+                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $Arcade Haus - Games Catalog-01.',
             'en-us':
-                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
+                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $Arcade Haus - Games Catalog-01.',
         },
     },
     {
@@ -234,8 +234,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-pichanha-coin-history',
         TermValueByLanguage: {
-            'pt-br': 'A história da Picanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01)',
-            'en-us': 'The history of Picanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01)',
+            'pt-br': 'A história da Picanha Coin ($Arcade Haus - Games Catalog-01)',
+            'en-us': 'The history of Picanha Coin ($Arcade Haus - Games Catalog-01)',
         },
     },
     {
@@ -249,9 +249,9 @@ const RAW_TERMS = [
         TermKey: 'home-brazil-2022-election-history',
         TermValueByLanguage: {
             'pt-br':
-                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 (um corte nobre de boi).',
+                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer Arcade Haus - Games Catalog-01 (um corte nobre de boi).',
             'en-us':
-                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 (a prime cut of beef).',
+                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat Arcade Haus - Games Catalog-01 (a prime cut of beef).',
         },
     },
     {
@@ -262,12 +262,12 @@ const RAW_TERMS = [
         },
     },
     {
-        TermKey: 'home-BASE-ANGULAR-PROJECT-01-de-lula-meme',
+        TermKey: 'home-ahap-gc-01-de-lula-meme',
         TermValueByLanguage: {
             'pt-br':
-                'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E, desde então, a “BASE-ANGULAR-PROJECT-01 de Lula” foi — e continua sendo — um meme muito forte e reconhecido no Brasil, especialmente em discussões de política e em discursos de opositores.',
+                'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E, desde então, a “ahap-gc-01 de Lula” foi — e continua sendo — um meme muito forte e reconhecido no Brasil, especialmente em discussões de política e em discursos de opositores.',
             'en-us':
-                'Even today, long after the elections, political polarization continues. Since then, “Lula’s BASE-ANGULAR-PROJECT-01” has been—and continues to be—a strong and well-known meme in Brazil, especially in political discussions and in opponents’ speeches.',
+                'Even today, long after the elections, political polarization continues. Since then, “Lula’s ahap-gc-01” has been—and continues to be—a strong and well-known meme in Brazil, especially in political discussions and in opponents’ speeches.',
         },
     },
     {
@@ -278,19 +278,19 @@ const RAW_TERMS = [
         },
     },
     {
-        TermKey: 'home-BASE-ANGULAR-PROJECT-01-symbol-meaning',
+        TermKey: 'home-ahap-gc-01-symbol-meaning',
         TermValueByLanguage: {
             'pt-br':
-                'O símbolo da BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 é $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01. Em português, “BASE-ANGULAR-PROJECT-01” é uma gíria para BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
+                'O símbolo da Arcade Haus - Games Catalog-01 é $Arcade Haus - Games Catalog-01. Em português, “ahap-gc-01” é uma gíria para Arcade Haus - Games Catalog-01.',
             'en-us':
-                'The symbol of BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 is $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01. In Portuguese, “BASE-ANGULAR-PROJECT-01” is slang for BASE-ANGULAR-PROJECT-PUBLIC-NAME-01.',
+                'The symbol of Arcade Haus - Games Catalog-01 is $Arcade Haus - Games Catalog-01. In Portuguese, “ahap-gc-01” is slang for Arcade Haus - Games Catalog-01.',
         },
     },
     {
-        TermKey: 'home-avoid-hands-on-your-BASE-ANGULAR-PROJECT-01s',
+        TermKey: 'home-avoid-hands-on-your-ahap-gc-01s',
         TermValueByLanguage: {
-            'pt-br': 'Evite que alguém passe a mão nas suas $BASE-ANGULAR-PROJECT-01s.',
-            'en-us': 'Avoid someone getting their hands on your $BASE-ANGULAR-PROJECT-01s.',
+            'pt-br': 'Evite que alguém passe a mão nas suas $ahap-gc-01s.',
+            'en-us': 'Avoid someone getting their hands on your $ahap-gc-01s.',
         },
     },
     {
@@ -310,10 +310,10 @@ const RAW_TERMS = [
         },
     },
     {
-        TermKey: 'home-BASE-ANGULAR-PROJECT-01',
+        TermKey: 'home-ahap-gc-01',
         TermValueByLanguage: {
-            'pt-br': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01):',
-            'en-us': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME-01 ($BASE-ANGULAR-PROJECT-PUBLIC-NAME-01):',
+            'pt-br': 'Arcade Haus - Games Catalog-01 ($Arcade Haus - Games Catalog-01):',
+            'en-us': 'Arcade Haus - Games Catalog-01 ($Arcade Haus - Games Catalog-01):',
         },
     },
 
@@ -335,10 +335,10 @@ const RAW_TERMS = [
         },
     },
     {
-        TermKey: 'home-who-conceived-BASE-ANGULAR-PROJECT-01-title',
+        TermKey: 'home-who-conceived-ahap-gc-01-title',
         TermValueByLanguage: {
-            'pt-br': 'Quem idealizou a $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01',
-            'en-us': 'Who conceived $BASE-ANGULAR-PROJECT-PUBLIC-NAME-01',
+            'pt-br': 'Quem idealizou a $Arcade Haus - Games Catalog-01',
+            'en-us': 'Who conceived $Arcade Haus - Games Catalog-01',
         },
     },
     {
