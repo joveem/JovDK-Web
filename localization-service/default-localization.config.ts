@@ -189,7 +189,7 @@ const RAW_TERMS = [
             'pt-br':
                 "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $Arcade Haus - Games Catalog-01 depositada em qualquer outro lugar que não seja a própria wallet.",
             'en-us':
-                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $Arcade Haus - Games Catalog-01 deposited anywhere other than their own wallet.",
+                "Poker (Texas Hold'em) against other players. Players will be able to play without having to leave their $Arcade Haus - Games Catalog-01 deposited anywhere other than their own wallet.",
         },
     },
     {
@@ -249,9 +249,9 @@ const RAW_TERMS = [
         TermKey: 'home-brazil-2022-election-history',
         TermValueByLanguage: {
             'pt-br':
-                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer Arcade Haus - Games Catalog-01 (um corte nobre de boi).',
+                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, "Lula", um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer Arcade Haus - Games Catalog-01 (um corte nobre de boi).',
             'en-us':
-                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat Arcade Haus - Games Catalog-01 (a prime cut of beef).',
+                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, "Lula," one of the former presidents, said that if he were elected, poor people would be able to eat Arcade Haus - Games Catalog-01 (a prime cut of beef).',
         },
     },
     {
@@ -265,9 +265,9 @@ const RAW_TERMS = [
         TermKey: 'home-ahap-gc-01-de-lula-meme',
         TermValueByLanguage: {
             'pt-br':
-                'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E, desde então, a “ahap-gc-01 de Lula” foi — e continua sendo — um meme muito forte e reconhecido no Brasil, especialmente em discussões de política e em discursos de opositores.',
+                'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E, desde então, a "ahap-gc-01 de Lula" foi - e continua sendo - um meme muito forte e reconhecido no Brasil, especialmente em discussões de política e em discursos de opositores.',
             'en-us':
-                'Even today, long after the elections, political polarization continues. Since then, “Lula’s ahap-gc-01” has been—and continues to be—a strong and well-known meme in Brazil, especially in political discussions and in opponents’ speeches.',
+                "Even today, long after the elections, political polarization continues. Since then, \"Lula's ahap-gc-01\" has been-and continues to be-a strong and well-known meme in Brazil, especially in political discussions and in opponents' speeches.",
         },
     },
     {
@@ -281,9 +281,9 @@ const RAW_TERMS = [
         TermKey: 'home-ahap-gc-01-symbol-meaning',
         TermValueByLanguage: {
             'pt-br':
-                'O símbolo da Arcade Haus - Games Catalog-01 é $Arcade Haus - Games Catalog-01. Em português, “ahap-gc-01” é uma gíria para Arcade Haus - Games Catalog-01.',
+                'O símbolo da Arcade Haus - Games Catalog-01 é $Arcade Haus - Games Catalog-01. Em português, "ahap-gc-01" é uma gíria para Arcade Haus - Games Catalog-01.',
             'en-us':
-                'The symbol of Arcade Haus - Games Catalog-01 is $Arcade Haus - Games Catalog-01. In Portuguese, “ahap-gc-01” is slang for Arcade Haus - Games Catalog-01.',
+                'The symbol of Arcade Haus - Games Catalog-01 is $Arcade Haus - Games Catalog-01. In Portuguese, "ahap-gc-01" is slang for Arcade Haus - Games Catalog-01.',
         },
     },
     {
@@ -297,9 +297,9 @@ const RAW_TERMS = [
         TermKey: 'home-caution-with-scams-profiles-contracts-fakes',
         TermValueByLanguage: {
             'pt-br':
-                'Cuidado com scams, <b>perfis</b>, <b>contratos</b> e <b>sites falsos</b>. Sempre busque links oficiais! Não confie em nenhum <b>site</b>/<b>pessoa</b> que peça sua <b>“seed phrase”</b>, <b>“private key”</b> nem em assinar contratos que não estejam <b>listados em canais oficiais</b>.',
+                'Cuidado com scams, <b>perfis</b>, <b>contratos</b> e <b>sites falsos</b>. Sempre busque links oficiais! Não confie em nenhum <b>site</b>/<b>pessoa</b> que peça sua <b>"seed phrase"</b>, <b>"private key"</b> nem em assinar contratos que não estejam <b>listados em canais oficiais</b>.',
             'en-us':
-                'Be careful with scams, <b>profiles</b>, <b>contracts</b>, and <b>fake sites</b>. Always look for official links! Do not trust any <b>site</b>/<b>person</b> that asks for your <b>“seed phrase”</b>, <b>“private key”</b>, or to sign contracts not <b>listed on official channels</b>.',
+                'Be careful with scams, <b>profiles</b>, <b>contracts</b>, and <b>fake sites</b>. Always look for official links! Do not trust any <b>site</b>/<b>person</b> that asks for your <b>"seed phrase"</b>, <b>"private key"</b>, or to sign contracts not <b>listed on official channels</b>.',
         },
     },
     {
@@ -351,8 +351,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-team-is-one-dev',
         TermValueByLanguage: {
-            'pt-br': 'Por enquanto, “o time” é apenas 1 dev',
-            'en-us': 'For now, “the team” is just 1 dev',
+            'pt-br': 'Por enquanto, "o time" é apenas 1 dev',
+            'en-us': 'For now, "the team" is just 1 dev',
         },
     },
     {
@@ -398,9 +398,9 @@ const RAW_TERMS = [
         TermKey: 'home-prefer-not-anonymous-but-didnt-calculate-implications',
         TermValueByLanguage: {
             'pt-br':
-                'Preferiria não estar anônimo, para não parecer um “scamzão”, mas ainda não avaliei as implicações (boas e ruins) de me identificar; então vou me manter assim por ora.',
+                'Preferiria não estar anônimo, para não parecer um "scamzão", mas ainda não avaliei as implicações (boas e ruins) de me identificar; então vou me manter assim por ora.',
             'en-us':
-                "I would prefer not to be anonymous—so I don't look like a big scam—but I haven't yet considered the implications (good and bad) of identifying myself, so I'll remain like this for now.",
+                "I would prefer not to be anonymous-so I don't look like a big scam-but I haven't yet considered the implications (good and bad) of identifying myself, so I'll remain like this for now.",
         },
     },
     {
@@ -414,9 +414,9 @@ const RAW_TERMS = [
         TermKey: 'home-no-pump-and-dump-no-rug-pull-long-term-goals',
         TermValueByLanguage: {
             'pt-br':
-                'Não pretendo fazer pump and dump nem fazer rug pull — nem tenho dinheiro para isso. Independentemente de este projeto dar certo ou não, minha meta é o médio/longo prazo e poder financiar meus próximos projetos maiores.',
+                'Não pretendo fazer pump and dump nem fazer rug pull - nem tenho dinheiro para isso. Independentemente de este projeto dar certo ou não, minha meta é o médio/longo prazo e poder financiar meus próximos projetos maiores.',
             'en-us':
-                "I don't intend to pump and dump or do a rug pull—and I don't have the money for that. Whether this project succeeds or not, my goal is the medium/long term and to fund my next, bigger projects.",
+                "I don't intend to pump and dump or do a rug pull-and I don't have the money for that. Whether this project succeeds or not, my goal is the medium/long term and to fund my next, bigger projects.",
         },
     },
     {
