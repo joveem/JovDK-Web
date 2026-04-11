@@ -1,4 +1,5 @@
-export interface LoadingCoverOptions {
+export interface LoadingCoverOptions
+{
     backgroundColor?: string;
     spinnerTrackColor?: string;
     spinnerAccentColor?: string;
@@ -24,7 +25,8 @@ const STYLE_ELEMENT_ID = 'global-loading-cover-style';
 const OVERLAY_ID = 'global-loading-cover';
 const RESERVE_ID = 'global-loading-reserve';
 
-class GlobalLoadingCoverController {
+class GlobalLoadingCoverController
+{
     private initialized = false;
     private overlay?: HTMLElement;
     private reserve?: HTMLElement;
@@ -120,7 +122,8 @@ class GlobalLoadingCoverController {
             return;
 
         this.overlay.classList.add('hide-overlay');
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             if (!this.overlay)
                 return;
             this.overlay.hidden = true;
