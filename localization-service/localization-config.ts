@@ -5,6 +5,7 @@ export interface LocalizationLanguageOption
     readonly id: string;
     readonly name: string;
     readonly flagIconName?: string;
+    readonly flagExtension?: string;
 }
 
 export interface LocalizationTerm

@@ -2,12 +2,12 @@ import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
 import
-    {
-        LOCALIZATION_CONFIG,
-        LocalizationConfig,
-        LocalizationLanguageOption,
-        LocalizationTerm,
-    } from './localization-config';
+{
+    LOCALIZATION_CONFIG,
+    LocalizationConfig,
+    LocalizationLanguageOption,
+    LocalizationTerm,
+} from './localization-config';
 import { DEFAULT_LOCALIZATION_CONFIG } from './default-localization.config';
 
 type TermsDictionary = Record<string, string>;
