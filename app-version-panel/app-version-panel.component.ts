@@ -4,12 +4,11 @@ import { APP_ENVIRONMENT_INFO } from '../core/environment/app-environment.token'
 
 @Component({
     selector: 'app-version-panel',
-    standalone: true,
     imports: [
         NgIf,
     ],
     templateUrl: './app-version-panel.component.html',
-    styleUrl: './app-version-panel.component.css',
+    styleUrl: './app-version-panel.component.css'
 })
 export class AppVersionPanelComponent
 {
