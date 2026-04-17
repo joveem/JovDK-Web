@@ -77,8 +77,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-where-and-when-will-jd-eh-ws-fe-01-pass',
         TermValueByLanguage: {
-            'pt-br': 'Por onde a $Env Heaven-01 vai passar e quando',
-            'en-us': 'Where and when will $Env Heaven-01 be available',
+            'pt-br': 'Por onde a $EnvHeaven vai passar e quando',
+            'en-us': 'Where and when will $EnvHeaven be available',
         },
     },
     {
@@ -148,9 +148,9 @@ const RAW_TERMS = [
         TermKey: 'home-blackjack-21-against-players-or-table',
         TermValueByLanguage: {
             'pt-br':
-                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $Env Heaven-01 depositada em qualquer outro lugar que não seja a própria wallet.',
+                'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $EnvHeaven depositada em qualquer outro lugar que não seja a própria wallet.',
             'en-us':
-                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $Env Heaven-01 deposited anywhere other than their own wallet.',
+                'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $EnvHeaven deposited anywhere other than their own wallet.',
         },
     },
     {
@@ -187,9 +187,9 @@ const RAW_TERMS = [
         TermKey: 'home-poker-texas-holdem-against-players',
         TermValueByLanguage: {
             'pt-br':
-                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $Env Heaven-01 depositada em qualquer outro lugar que não seja a própria wallet.",
+                "Poker (Texas Hold'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $EnvHeaven depositada em qualquer outro lugar que não seja a própria wallet.",
             'en-us':
-                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $Env Heaven-01 deposited anywhere other than their own wallet.",
+                "Poker (Texas Hold’em) against other players. Players will be able to play without having to leave their $EnvHeaven deposited anywhere other than their own wallet.",
         },
     },
     {
@@ -210,9 +210,9 @@ const RAW_TERMS = [
         TermKey: 'home-game-with-own-token-nfts-staking',
         TermValueByLanguage: {
             'pt-br':
-                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $Env Heaven-01.',
+                'Jogo com token próprio, 2 coleções de NFTs e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. A primeira rodada de venda do token será feita apenas em $EnvHeaven.',
             'en-us':
-                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $Env Heaven-01.',
+                'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known classic game. The first round of the token sale will be made only in $EnvHeaven.',
         },
     },
     {
@@ -234,8 +234,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-pichanha-coin-history',
         TermValueByLanguage: {
-            'pt-br': 'A história da Picanha Coin ($Env Heaven-01)',
-            'en-us': 'The history of Picanha Coin ($Env Heaven-01)',
+            'pt-br': 'A história da Picanha Coin ($EnvHeaven)',
+            'en-us': 'The history of Picanha Coin ($EnvHeaven)',
         },
     },
     {
@@ -249,9 +249,9 @@ const RAW_TERMS = [
         TermKey: 'home-brazil-2022-election-history',
         TermValueByLanguage: {
             'pt-br':
-                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer Env Heaven-01 (um corte nobre de boi).',
+                'No Brasil, as eleições presidenciais de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, “Lula”, um dos ex-presidentes, disse que, se fosse eleito, as pessoas pobres poderiam comer EnvHeaven (um corte nobre de boi).',
             'en-us':
-                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat Env Heaven-01 (a prime cut of beef).',
+                'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, “Lula,” one of the former presidents, said that if he were elected, poor people would be able to eat EnvHeaven (a prime cut of beef).',
         },
     },
     {
@@ -281,9 +281,9 @@ const RAW_TERMS = [
         TermKey: 'home-jd-eh-ws-fe-01-symbol-meaning',
         TermValueByLanguage: {
             'pt-br':
-                'O símbolo da Env Heaven-01 é $Env Heaven-01. Em português, “jd-eh-ws-fe-01” é uma gíria para Env Heaven-01.',
+                'O símbolo da EnvHeaven é $EnvHeaven. Em português, “jd-eh-ws-fe-01” é uma gíria para EnvHeaven.',
             'en-us':
-                'The symbol of Env Heaven-01 is $Env Heaven-01. In Portuguese, “jd-eh-ws-fe-01” is slang for Env Heaven-01.',
+                'The symbol of EnvHeaven is $EnvHeaven. In Portuguese, “jd-eh-ws-fe-01” is slang for EnvHeaven.',
         },
     },
     {
@@ -312,8 +312,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-jd-eh-ws-fe-01',
         TermValueByLanguage: {
-            'pt-br': 'Env Heaven-01 ($Env Heaven-01):',
-            'en-us': 'Env Heaven-01 ($Env Heaven-01):',
+            'pt-br': 'EnvHeaven ($EnvHeaven):',
+            'en-us': 'EnvHeaven ($EnvHeaven):',
         },
     },
 
@@ -337,8 +337,8 @@ const RAW_TERMS = [
     {
         TermKey: 'home-who-conceived-jd-eh-ws-fe-01-title',
         TermValueByLanguage: {
-            'pt-br': 'Quem idealizou a $Env Heaven-01',
-            'en-us': 'Who conceived $Env Heaven-01',
+            'pt-br': 'Quem idealizou a $EnvHeaven',
+            'en-us': 'Who conceived $EnvHeaven',
         },
     },
     {
